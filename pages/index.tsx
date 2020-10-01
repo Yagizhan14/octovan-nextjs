@@ -38,7 +38,7 @@ const Passengers: React.FC<IPassengersProps> = () => {
     null,
   );
 
-  const getInitialPassengers = async () => {
+  const getInitialPassengers = React.useCallback(async () => {
     try {
       const response = await Axios.get(
         `https://api.instantwebtools.net/v1/passenger?page=${currentPage}&size=10`,
@@ -50,9 +50,9 @@ const Passengers: React.FC<IPassengersProps> = () => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, []);
 
-  const getPassengers = async () => {
+  const getPassengers = React.useCallback(async () => {
     try {
       setPageLoading(true);
       const response = await Axios.get(
@@ -66,7 +66,7 @@ const Passengers: React.FC<IPassengersProps> = () => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [currentPage]);
 
   React.useEffect(() => {
     getInitialPassengers();

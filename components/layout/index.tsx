@@ -13,6 +13,10 @@ const Layout: React.FC<ILayoutProps> = ({ children, title }) => {
       <GlobalStyle />
       <Head>
         <title>{title}</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <Container>{children}</Container>
     </React.Fragment>
